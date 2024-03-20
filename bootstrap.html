@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transparent Navigation</title>
+    
+    
+
+    <style>
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url("https://pics.craiyon.com/2023-07-30/f809e5a31e594e58b2f6f01f4eb68646.webp");
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            width: 100%;
+            /* position: fixed; */
+            background-size: cover;
+            background-attachment: fixed;
+            
+        }
+
+        .navcontainer {
+            width: 100%;
+            height: 55px;
+            background-color: rgba(255, 255, 255, 0.05); 
+            backdrop-filter: blur(5px); 
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+        }
+
+        .navcontainer img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+        }
+
+        .navcontainer nav {
+            display: flex;
+        }
+
+        .navcontainer nav a {
+            text-decoration: none;
+            color: rgb(4, 16, 82);
+            font-weight: bolder;
+            font-size: xx-large;
+            
+            padding: 0 20px;
+            cursor: pointer;
+            transition: background-color 1s;
+        }
+
+        .navcontainer nav a:hover{
+            background-color: rgba(255, 255, 255, 0.5); 
+            border-radius: 5px;
+            width: auto;
+            height: auto;
+        }
+
+        .search {
+            display: flex;
+            align-items: center;
+        }
+
+        .search input[type="search"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: none;
+            outline: none;
+        }
+
+        .search input[type="button"] {
+            padding: 8px 20px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .search input[type="button"]:hover {
+            background-color: #2fa2d8;
+
+        }
+
+        .about {
+            margin-top: 300px;
+            margin-left: 300px;
+            box-sizing: border-box;
+            width: auto;
+            height: auto;
+            align-items: center;
+            padding: 20px;
+            color: black;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background: linear-gradient(gray, white);
+            box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.5);
+        }
+        .schedule{
+        margin-top: 300px;
+            margin-left: 300px;
+            box-sizing: border-box;
+            width: auto;
+            height: auto;
+            align-items: center;
+            padding: 20px;
+            color: black;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            background: linear-gradient(gray, white);
+            box-shadow: 30px 30px 30px 30px rgba(0, 0, 0, 0.5);
+        }
+        .home{
+            color: rgb(192, 167, 167);
+            margin-top: 300px;
+            box-sizing: border-box;
+            /* border:  solid black; */
+            height: auto;
+            width: 800px;
+            margin-left: 50px;
+            font-size: xx-large;
+            backdrop-filter: blur(2px);
+            padding: 5px;
+        }
+        .home #submit{
+            background-color: rgb(250, 5, 58);
+            width: 200px;
+            height: 50px;
+            font-size: xx-large;
+            border-radius: 20px;
+            margin-left: 300px;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .aboutcontainer{
+            width: auto;
+            background-color: #333;
+       
+            color: rgb(230, 78, 18);
+            border: 2px solid white;
+            margin: 100px 75px;
+            padding: 5px;
+
+
+        }
+        .aboutcontainer1{
+            width: 500px;;
+            background-color: #333;
+       
+            color: rgb(230, 78, 18);
+            border: 2px solid white;
+            margin: 100px 75px;
+            padding: 5px;
+        }
+
+        .box{
+            /* background-color: red; */
+            display: flex;
+            border: 2px solid white;
+            backdrop-filter: blur(5px);
+            padding: 20px;
+            
+            margin-top: 20px;
+        }
+        .box img{
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+        
+        }
+        .contactus{
+           
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+           
+            padding: 50px;
+           color: white;
+            background-color: rgb(48 48 49);
+        
+
+        }
+        .contactus .boxforimg img{
+            width: 500px;
+            height: 400px;
+        }
+        .contactus .boxforform{
+            
+            width: 500px;
+            height: 400px;
+            box-sizing: border-box;
+          
+        }
+        .contactus .boxforform #submitid{
+            background-color: rgb(162, 160, 172);
+            width: 200px;
+            height: 30px;
+            align-items: center;
+           
+        }
+
+.cont{
+    display: block;
+    color: rgb(230, 78, 18);
+    border: solid;
+    border-color:white;
+    text-align: center;
+}
+
+    </style>
+</head>
+<body>
+    <section>
+        <div class="navcontainer">
+            <div class="logo">
+                <img src="https://static.vecteezy.com/system/resources/thumbnails/017/504/043/small/bodybuilding-emblem-and-gym-logo-design-template-vector.jpg" alt="Logo">
+            </div>
+            <nav>
+                <a href="#home" id="nav1">Home</a>
+                <a href="#about" id="nav2">About</a>
+                <a href="#schedules" id="nav3">Schedules</a>
+                <a href="#" id="nav4">Classes</a>
+                <a href="#contact us" id="nav5">Contact Us</a>
+            </nav>
+            <div class="search">
+                <form action="">
+                    <input type="search" name="search" placeholder="Search Here">
+                    <input type="button" value="Search">
+                </form>
+            </div>
+        </div>
+    </section>
+  
+    <section id="about">
+        <div class="aboutcontainer">
+            <h1 >About </h1>
+            
+            <div class="box">
+                <img src="https://themewagon.github.io/zacson/assets/img/gallery/team1.png" alt="">
+                <div class="box-content">
+                    <h2 style="" >Muscle Building</h2>
+                    <p>
+                    At Fitness gym we understand the importence of muscle building for achieving a strong and toned physique.Our muscle building workouts are designed to challenge your muscle and stimulates grouth,incorporating a variety of exercises and training techniques to ensure continuos progress and results.
+                    </p>
+                </div>  
+            </div>
+            <div class="box">
+                <div class="box-content">
+                    <h2 >Weight Gain</h2>
+                    <p>
+                        Looking to bulk up and pack on muscle mass? Our weight gain programs are specifically tailored to help you build strength and size effectively. Through a combination of resistance training, strategic nutrition planning, and expert guidance from our trainers, you'll be able to maximize your muscle growth and achieve the physique you desire.
+                    </p>
+                </div>  
+                <img src="https://themewagon.github.io/zacson/assets/img/gallery/team2.png" alt="">
+            </div>
+            <div class="box">
+                <img src="https://themewagon.github.io/zacson/assets/img/gallery/team3.png" alt="">
+                <div class="box-content">
+                    <h2>Weight Loss</h2>
+                    <p>
+                        Struggling to shed those stubborn pounds? Our weight loss programs are designed to help you reach your target weight and improve your overall health and wellness. With personalized workout plans, nutritional counseling, and motivational support from our dedicated trainers, you'll be able to achieve sustainable weight loss results.s
+                    </p>
+                </div>  
+            </div>
+        </div>
+    </section>
+    <section id="schedules">
+        <div class="aboutcontainer1">
+            <h1 >schedules </h1>
+            
+            <div class="box">
+
+                <table border="2">
+                    <tr>
+                        <td>DAYS- TIMES</td> <td>5-6.Am</td><td>4-6.Pm</td> <td>7-9.Pm</td>
+                    </tr>
+    
+                <tr>
+                    <td>monday</td><td>leg</td> <td>sqaud</td><td>full workout</td>
+                </tr>
+                <tr>
+                    <td>tuseday</td><td>full workout</td><td>sqaud</td><td>leg</td> 
+                </tr>
+                <tr>
+                    <td>wednesday</td> <td>leg</td><td>full workout</td><td>sqaud</td>
+                </tr>
+                <tr>
+                    <td>thuseday</td><td>full workout</td><td>sqaud</td><td>leg</td> 
+                </tr>
+                <tr>
+                    <td>friday</td><td>sqaud</td> <td>leg</td> <td>full workout</td>
+                </tr>
+                <tr>
+                    <td>saturday</td> <td>leg</td><td>full workout</td><td>sqaud</td>
+                </tr>
+                <tr>
+                    <td>sunday</td> <td>sqaud</td><td>full workout</td><td>leg</td>
+                </tr>
+                
+                </table>
+                           </div>
+             
+            </div>
+        </div>
+    </section>
+    
+ <br>
+    <section id="contact us">
+        <div class="contactus">
+            <div class="cont">
+
+                <h2>contact us</h2>
+            </div>
+          <br>
+            <div class="boxforimg">
+                <img src="https://www.philips.co.in/c-dam/b2bhc/master/About-Us/contact-us/customer-support-lady.jpg" alt="">
+            </div>
+            <div class="boxforform">
+                <div class="contactush1">
+                 <h1  >CONTACT US</h1>
+                </div>
+                <form action="">
+                    <div class="fullname"   >
+                    <input type="text" placeholder="Full Name">
+                     </div>
+                    <div class="email" >
+                        <input type="email" name="" id="" placeholder="Email">
+                    </div>
+                    <div class="message" >
+                        <textarea name="Message" id="" cols="30" rows="10" placeholder="Message"></textarea>
+                    </div>
+                    <div class="contactsubmit" >
+                        <input type="submit" value="submit" id="submitid">
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
